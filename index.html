@@ -102,7 +102,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: sans-serif}
             </div>
                 
             <br>
-            <div class="w3-light-gray w3-center w3-round-medium"
+            <div class="w3-row w3-center w3-light-gray w3-center w3-round-medium"
                  style="height:24px; width:100%;" id="progress-bar">
                 <div class="w3-green w3-center w3-round-medium" 
                      style="height:24px;" id="progress-bar-learned">
@@ -110,66 +110,62 @@ body,h1,h2,h3,h4,h5,h6 {font-family: sans-serif}
             </div>
             <br>
 
-            <table class="w3-table">
+            <div class="w3-row w3-center">
+                <div class="w3-col w3-center" style="width:20%">
+                    <button class="w3-btn w3-small w3-border 
+                                    w3-padding
+                                    w3-xlarge w3-round-xlarge w3-padding"
+                            onclick="back();">
+                        <i class="fa fa-arrow-left">
+                        </i>
+                    </button>                       
+                </div>
+                <div class="w3-col w3-center" style="width:20%">
+                    <button class="w3-btn w3-small w3-border 
+                                    w3-padding
+                                    w3-circle w3-xxlarge w3-padding"
+                            onclick="shuffle();">
+                        <i class="fa fa-random">
+                            
+                        </i>
+                    </button>
+                    <br>
+                    Shuffle
+                </div>
+                <div class="w3-col w3-center" style="width:20%">
+                    <button class="w3-btn w3-small w3-border 
+                                    w3-padding
+                                    w3-circle w3-xxlarge w3-padding"
+                            onclick="reset();">
+                        <i class="fa fa-refresh">
+                            
+                        </i>
+                    </button>
+                    <br>
+                    Reset
+                </div>
+                <div class="w3-col w3-center" style="width:20%">
+                    <button class="w3-btn w3-small w3-border 
+                                    w3-padding
+                                    w3-circle w3-xxlarge w3-padding"
+                            onclick="learned();">
+                        <i class="fa fa-check">
+                            
+                        </i>
+                    </button>
+                    <br>
+                    Learned
+                </div>
+                <div class="w3-col w3-center" style="width:20%">
+                    <button class="w3-btn w3-small w3-border 
+                                    w3-padding w2-light-green
+                                    w3-xlarge w3-round-xlarge w3-padding"
+                        onclick="next();">
+                        <i class="fa fa-arrow-right">
 
-                <tr>                  
-                    <td class="w3-center w3-small" style="width:20%;">
-                        <button class="w3-btn w3-small w3-border 
-                                        w3-padding
-                                        w3-xlarge w3-round-xlarge w3-padding"
-                                onclick="back();">
-                            <i class="fa fa-arrow-left">
-                            </i>
-                        </button>                       
-                    </td>
-                    <td class="w3-center" style="width:20%;">
-                        <button class="w3-btn w3-small w3-border 
-                                        w3-padding
-                                        w3-circle w3-xxlarge w3-padding"
-                                onclick="shuffle();">
-                            <i class="fa fa-random">
-                               
-                            </i>
-                        </button>
-                        <br>
-                        Shuffle
-                    </td>
-                    <td class="w3-center" style="width:20%;">
-                        <button class="w3-btn w3-small w3-border 
-                                        w3-padding
-                                        w3-circle w3-xxlarge w3-padding"
-                                onclick="reset();">
-                            <i class="fa fa-refresh">
-                               
-                            </i>
-                        </button>
-                        <br>
-                        Reset
-                    </td>
-                    <td class="w3-center" style="width:20%;">
-                        <button class="w3-btn w3-small w3-border 
-                                        w3-padding
-                                        w3-circle w3-xxlarge w3-padding"
-                                onclick="learned();">
-                            <i class="fa fa-check">
-                               
-                            </i>
-                        </button>
-                        <br>
-                        Learned
-                    </td>
-                    <td class="w3-center" style="width:20%;">
-                        <button class="w3-btn w3-small w3-border 
-                                        w3-padding w2-light-green
-                                        w3-xlarge w3-round-xlarge w3-padding"
-                            onclick="next();">
-                            <i class="fa fa-arrow-right">
-
-                            </i>
-                        </button>    
-                    </td>
-                </tr>
-              </table>
+                        </i>
+                    </button>    
+                </div>
             </div>
         </div>
     </div>
