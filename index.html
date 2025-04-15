@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Flashcards</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="manifest" href="manifest.json" />
+<!-- ios support 
+<link rel="apple-touch-icon" href="icons/icon-72x72.png" />
+<link rel="apple-touch-icon" href="icons/icon-96x96.png" />
+<link rel="apple-touch-icon" href="icons/icon-128x128.png" />
+<link rel="apple-touch-icon" href="icons/icon-144x144.png" />
+<link rel="apple-touch-icon" href="icons/icon-152x152.png" />
+<link rel="apple-touch-icon" href="icons/icon-192x192.png" />
+<link rel="apple-touch-icon" href="icons/icon-384x384.png" />
+<link rel="apple-touch-icon" href="icons/icon-512x512.png" />
+<meta name="apple-mobile-web-app-status-bar" content="#000066" />
+<meta name="theme-color" content="#000066" />
+-->
+
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: sans-serif}
+
+</style>
+
+</head>
+<body>
+ 
+
+<div class="w3-bar w3-indigo">
+
+<!--
+    <a href="#" class="w3-bar-item w3-button" onclick="setDeck('All');">All</a>
+-->
+    <div class="w3-dropdown-hover">
+        <button class="w3-button">Units</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a href="#" class="w3-bar-item w3-button" onclick="setDeck('Unit 01');"">Unit 1</a>
+          <a href="#" class="w3-bar-item w3-button" onclick="setDeck('Unit 02');"">Unit 2</a>
+          <a href="#" class="w3-bar-item w3-button" onclick="setDeck('Unit 03');"">Unit 3</a>
+          <a href="#" class="w3-bar-item w3-button" onclick="setDeck('Unit 04');"">Unit 4</a>
+          <a href="#" class="w3-bar-item w3-button" onclick="setDeck('Unit 05');"">Unit 5</a>
+          <a href="#" class="w3-bar-item w3-button" onclick="setDeck('Unit 06');"">Unit 6</a>
+          <a href="#" class="w3-bar-item w3-button" onclick="setDeck('Unit 07');"">Unit 7</a>
+          <a href="#" class="w3-bar-item w3-button" onclick="setDeck('Unit 08');"">Unit 8</a>          
+        </div>
+    </div>
+<!--
+    <div class="w3-dropdown-hover">
+        <button class="w3-button">Categories</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a href="#" class="w3-bar-item w3-button">Applications of Integration</a>
+          <a href="#" class="w3-bar-item w3-button">Definitions and Theorems</a>
+          <a href="#" class="w3-bar-item w3-button">Differentiation Rules</a>
+          <a href="#" class="w3-bar-item w3-button">Integration Rules</a>
+          <a href="#" class="w3-bar-item w3-button">Motion</a>
+        </div>
+      </div>
+    -->
+</div>
+      
+    
+<!-- !PAGE CONTENT! -->
+<main class = "w3-content" style="width:90%;">
+
+    <div class="w3-padding">
+        <h1 id="deck-header">
+            
+        </h1>
+
+            <div class="w3-row w3-center">
+                <div class="w3-col w3-center">
+                    <div class="w3-show w3-display-container" id="question-container">
+                        <button onclick="showCard('answer-container');" 
+                                class="w3-btn w3-block w3-indigo w3-center
+                                    w3-round-xlarge w3-border w3-padding-small
+                                    w3-middle w3-xxlarge"  
+                                style="white-space:normal; word-wrap: break-word;
+                                        min-height:300px; max-height:300px;">
+                            <div id="question">
+
+                            </div>
+                        </button>       
+                    </div>
+                    <div class="w3-hide w3-display-container" id="answer-container">
+                        <button onclick="showCard('question-container');" 
+                                class="w3-btn w3-block w3-center 
+                                        w3-round-xlarge w3-border w3-middle
+                                        w3-xlarge"  
+                                style="white-space:normal; word-wrap: break-word;
+                                        min-height:300px; max-height:300px;">
+                            <div id="answer">
+
+                            </div>                      
+                        </button>       
+                    </div>
+                </div>    
+            </div>
+                
+            <br>
+            <div class="w3-light-gray w3-center w3-round-medium"
+                 style="height:24px; width:100%;" id="progress-bar">
+                <div class="w3-green w3-center w3-round-medium" 
+                     style="height:24px;" id="progress-bar-learned">
+                </div>
+            </div>
+            <br>
+
+            <table class="w3-table">
+
+                <tr>                  
+                    <td class="w3-center w3-small" style="width:20%;">
+                        <button class="w3-btn w3-small w3-border 
+                                        w3-padding
+                                        w3-xlarge w3-round-xlarge w3-padding"
+                                onclick="back();">
+                            <i class="fa fa-arrow-left">
+                            </i>
+                        </button>                       
+                    </td>
+                    <td class="w3-center" style="width:20%;">
+                        <button class="w3-btn w3-small w3-border 
+                                        w3-padding
+                                        w3-circle w3-xxlarge w3-padding"
+                                onclick="shuffle();">
+                            <i class="fa fa-random">
+                               
+                            </i>
+                        </button>
+                        <br>
+                        Shuffle
+                    </td>
+                    <td class="w3-center" style="width:20%;">
+                        <button class="w3-btn w3-small w3-border 
+                                        w3-padding
+                                        w3-circle w3-xxlarge w3-padding"
+                                onclick="reset();">
+                            <i class="fa fa-refresh">
+                               
+                            </i>
+                        </button>
+                        <br>
+                        Reset
+                    </td>
+                    <td class="w3-center" style="width:20%;">
+                        <button class="w3-btn w3-small w3-border 
+                                        w3-padding
+                                        w3-circle w3-xxlarge w3-padding"
+                                onclick="learned();">
+                            <i class="fa fa-check">
+                               
+                            </i>
+                        </button>
+                        <br>
+                        Learned
+                    </td>
+                    <td class="w3-center" style="width:20%;">
+                        <button class="w3-btn w3-small w3-border 
+                                        w3-padding w2-light-green
+                                        w3-xlarge w3-round-xlarge w3-padding"
+                            onclick="next();">
+                            <i class="fa fa-arrow-right">
+
+                            </i>
+                        </button>    
+                    </td>
+                </tr>
+              </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+<hr>
+
+<!-- Footer -->
+<footer class="w3-containter w3-padding w3-center">
+    <p>
+        Olson, Inc. 
+        <br>
+        Copyright &copy; 2025
+    </p>
+</footer>
+
+
+
+<script>
+    <!-- Accordion -->
+    function myFunction(id) {
+      var x = document.getElementById(id);
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else { 
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+</script>
+
+<!--MathJax--> 
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<!-- The Decks-->
+<script type="text/javascript" src="js/angles.js"></script>
+<script type="text/javascript" src="js/unit01.js"></script>
+<script type="text/javascript" src="js/unit02.js"></script>
+<script type="text/javascript" src="js/unit03.js"></script>
+<script type="text/javascript" src="js/unit04.js"></script>
+<script type="text/javascript" src="js/unit05.js"></script>
+<script type="text/javascript" src="js/unit06.js"></script>
+<script type="text/javascript" src="js/unit07.js"></script>
+<script type="text/javascript" src="js/unit08.js"></script>
+<script type="text/javascript" src="js/javascript.js"></script>
+
+
+<!--Progressive Web App
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js');
+        });
+    }
+</script>
+-->
+
+
+</body>
+</html>
