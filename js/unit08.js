@@ -68,6 +68,7 @@ unit08DeckJsonString = `[
     "answerFontSize" : "w3-xlarge",
     "answer": [
       "$$A = \\\\int_{a}^{b} \\\\left( f(x) - g(x) \\\\right)  dx$$",
+      "Think: upper \\\\(-\\\\) lower",
       ""
     ]
   },
@@ -86,6 +87,7 @@ unit08DeckJsonString = `[
     "answerFontSize" : "w3-xlarge",
     "answer": [
       "$$A = \\\\int_{c}^{d} \\\\left( f(y) - g(y) \\\\right)  dy$$",
+      "Think: left \\\\(-\\\\) right",
       ""
     ]
   },
