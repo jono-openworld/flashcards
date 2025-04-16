@@ -50,7 +50,7 @@ unit08DeckJsonString = `[
     "answerFontSize" : "w3-xlarge",
     "answer": [
       "$$ s(t_2) = s(t_1) + \\\\int_{t_1}^{t_2} v(t) dt$$",
-      "Think: final position = initial position + displacement "
+      "Think: (final position) = (initial position) + displacement "
     ]
   },
     {
@@ -61,8 +61,8 @@ unit08DeckJsonString = `[
     "active": "true",
     "questionFontSize": "w3-xlarge",
     "question": [
-      "The Area of a Region Between Two Curves (\\\\( f\\\\) and \\\\(g\\\\) on \\\\([a,b]\\\\))", 
-      "where \\\\(g(x) \\\\leq f(x)\\\\)",
+      "The Area of a Region Between Two Curves",
+      "(\\\\( f\\\\) and \\\\(g\\\\) on \\\\([a,b]\\\\) where \\\\(g(x) \\\\leq f(x)\\\\))",
       ""
     ],   
     "answerFontSize" : "w3-xlarge",
@@ -79,8 +79,8 @@ unit08DeckJsonString = `[
     "active": "true",
     "questionFontSize": "w3-xlarge",
     "question": [
-      "The Area of a Region Between Two Curves (\\\\( f\\\\) and \\\\(g\\\\) on \\\\([c,d]\\\\))", 
-      "where \\\\(g(y) \\\\leq f(y)\\\\)",
+      "The Area of a Region Between Two Curves",
+      "(\\\\( f\\\\) and \\\\(g\\\\) on \\\\([c,d]\\\\) where \\\\(g(y) \\\\leq f(y)\\\\))",
       ""
     ],   
     "answerFontSize" : "w3-xlarge",
@@ -173,7 +173,7 @@ unit08DeckJsonString = `[
       "(with horizontal axis of revolution)",
       ""
     ],   
-    "answerFontSize" : "w3-xlarge",
+    "answerFontSize" : "w3-large",
     "answer": [
       "$$V = \\\\pi \\\\int_{a}^{b} \\\\left( \\\\left[ R(x) \\\\right]^2 - \\\\left[ r(x) \\\\right]^2 \\\\right) dx$$",
       ""
@@ -191,7 +191,7 @@ unit08DeckJsonString = `[
       "(with vertical axis of revolution)",
       ""
     ],   
-    "answerFontSize" : "w3-xlarge",
+    "answerFontSize" : "w3-large",
     "answer": [
       "$$V = \\\\pi \\\\int_{c}^{d} \\\\left( \\\\left[ R(y) \\\\right]^2 - \\\\left[ r(y) \\\\right]^2 \\\\right) dy$$",
       ""

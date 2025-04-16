@@ -21,7 +21,7 @@ class Card {
 class Deck {
 
     numLearnedCards;
-    numTotalActiveCards;
+    numActiveCards;
 
     constructor(name, cards, cardsIndex) {
         this.name = name;
@@ -29,13 +29,13 @@ class Deck {
         this.cardsIndex = cardsIndex;
 
         this.numLearnedCards = 0;
-        this.numTotalActiveCards = 0;
+        this.numActiveCards = 0;
     
         if (!(this.cards === null)){
             this.cards.forEach((element) => {
                 if (element.active != null 
                  && element.active.toLowerCase() == "true") {
-                    this.numTotalActiveCards++;
+                    this.numActiveCards++;
                 };
             });
         }
@@ -118,6 +118,8 @@ const answer = document.querySelector('#answer');
 
 const progressBar = document.querySelector('#progress-bar');
 const progressBarLearned = document.querySelector('#progress-bar-learned');
+
+const learnedButton = document.querySelector('#learned-button');
 
 
 
@@ -291,27 +293,32 @@ function learned() {
 
     const currentDeck = state.decks[state.decksIndex];
 
-    currentDeck.numLearnedCards++;
+    if (currentDeck.numLearnedCards < currentDeck.numActiveCards){
 
-    currentDeck.cards[currentDeck.cardsIndex].learned = "true";
+        currentDeck.numLearnedCards++;
 
-    // write State
-    writeState(state);
+        currentDeck.cards[currentDeck.cardsIndex].learned = "true";
 
-    // select a new card
-    moveRightOne = (currentDeck.cardsIndex + 1) % currentDeck.cards.length;
-    nextCardIndex = getNextCardIndex(currentDeck, moveRightOne);
-    if (nextCardIndex >= 0) {
-        setCard(currentDeck, nextCardIndex);
+        // write State
+        writeState(state);
+
+        // select a new card
+        moveRightOne = (currentDeck.cardsIndex + 1) % currentDeck.cards.length;
+        nextCardIndex = getNextCardIndex(currentDeck, moveRightOne);
+        if (nextCardIndex >= 0) {
+            setCard(currentDeck, nextCardIndex);
+        }
+
+        if (currentDeck.numLearnedCards)
+        // write State
+        writeState(state);
+
+        // update page
+        updatePage();
+            
     }
 
-    // write State
-    writeState(state);
-
-    // update page
-    updatePage();
-
-    console.log('remove() complete');
+    console.log('learned() complete');
 }
 
 
@@ -397,8 +404,8 @@ function getNextCardIndex(deck, index) {
     if ((deck != null) 
         && (deck.cards.length > 0) 
         && (index < deck.cards.length) 
-        && (deck.numTotalActiveCards > 0) 
-        && (deck.numLearnedCards != deck.numTotalActiveCards)) {
+        && (deck.numActiveCards > 0) 
+        && (deck.numLearnedCards != deck.numActiveCards)) {
 
         // wrap to the left end if necessary
         tempIndex = index;
@@ -425,8 +432,8 @@ function getNextCardIndex(deck, index) {
 function getPreviousCardIndex(deck, index) {
     if ((deck != null) 
         && (deck.cards.length > 0) 
-        && (deck.numTotalActiveCards > 0) 
-        && (deck.numLearnedCards != deck.numTotalActiveCards)) {
+        && (deck.numActiveCards > 0) 
+        && (deck.numLearnedCards != deck.numActiveCards)) {
 
         tempIndex = index;
 
@@ -621,17 +628,26 @@ function updatePage() {
      
             if (currentDeck.numLearnedCards > 0){
                 text = "";
-                text += currentDeck.numLearnedCards + " / " + currentDeck.numTotalActiveCards;
+                text += currentDeck.numLearnedCards + " / " + currentDeck.numActiveCards;
                 progressBarLearned.innerHTML = "<p>" + text + "</p>";                  
             }
             
             // set width to percent of cards learned
-            percent = (currentDeck.numLearnedCards*100 / currentDeck.numTotalActiveCards);
+            percent = (currentDeck.numLearnedCards*100 / currentDeck.numActiveCards);
             progressBarLearned.style.width = percent + "%";
 
         }
         else {
             progressBarLearned.textContent = "{No deck}";
+        }
+    }
+
+    if(learnedButton != null){
+        if (currentDeck.numLearnedCards >= currentDeck.numActiveCards) {
+            learnedButton.disabled = true;
+        }
+        else {
+            learnedButton.disabled = false;
         }
     }
 

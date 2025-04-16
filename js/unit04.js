@@ -9,7 +9,7 @@ unit04DeckJsonString = `[
     "questionFontSize": "w3-xlarge",
     "question": [
       "Velocity",
-      "Given the position function \\\\(s(t)\\\\)",
+      "(Given the position function \\\\(s(t)\\\\))",
       ""
     ],   
     "answerFontSize" : "w3-xlarge",
@@ -27,8 +27,7 @@ unit04DeckJsonString = `[
     "questionFontSize": "w3-xlarge",
     "question": [
       "Acceleration",
-      "Given the velocity function \\\\(v(t)\\\\)",
-      "and the position function \\\\(s(t)\\\\)",
+      "(Given the velocity function \\\\(v(t)\\\\) and/or the position function \\\\(s(t)\\\\))",
       ""
     ],   
     "answerFontSize" : "w3-xlarge",
@@ -84,7 +83,7 @@ unit04DeckJsonString = `[
     ],   
     "answerFontSize" : "w3-xlarge",
     "answer": [
-        "\\\\(v(t)\\\\) and \\\\(a(t)\\\\) have the opposite signs",
+        "\\\\(v(t)\\\\) and \\\\(a(t)\\\\) have opposite signs",
         ""
     ]
   },
@@ -100,9 +99,9 @@ unit04DeckJsonString = `[
       "(\\\\(L(x)\\\\) is the linear approximator of \\\\(f\\\\) at \\\\(x=a\\\\))",
       ""
     ],   
-    "answerFontSize" : "w3-xlarge",
+    "answerFontSize" : "w3-large",
     "answer": [
-        "$$f(x) \\\\approx L(x) = f'(a)(x-a)+f(a)$$",
+        "\\\\(f(x) \\\\approx L(x) = f'(a)(x-a)+f(a)\\\\)",
         ""
     ]
   },
@@ -128,8 +127,7 @@ unit04DeckJsonString = `[
         "(2) \\\\(\\\\lim_{x\\\\to c} f(x) = \\\\pm \\\\infty\\\\) and \\\\(\\\\lim_{x\\\\to c} g(x) = \\\\pm \\\\infty\\\\)",
         "",
         "",
-        "Conclusion:",
-        "$$\\\\lim_{x\\\\to c}\\\\frac{f(x)}{g(x)} = \\\\lim_{x\\\\to c}\\\\frac{f'(x)}{g'(x)}$$",
+        "Conclusion: \\\\(\\\\lim_{x\\\\to c}\\\\frac{f(x)}{g(x)} = \\\\lim_{x\\\\to c}\\\\frac{f'(x)}{g'(x)}\\\\)",
         ""
     ]
   }

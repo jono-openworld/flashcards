@@ -24,14 +24,14 @@ unit01DeckJsonString = `[
       "Condition(s):",
       "Conclusion:"
     ],   
-    "answerFontSize" : "w3-medium",
+    "answerFontSize" : "w3-large",
     "answer": [
         "Conditions:",
         "(1) \\\\(g(x) \\\\leq f(x) \\\\leq h(x)\\\\) for all \\\\(x\\\\) in an open interval containing \\\\(c\\\\), except possibly at \\\\(c\\\\) itself." ,
-        "(2) $$\\\\lim_{x\\\\to c}g(x) = \\\\lim_{x\\\\to c}h(x) = L$$",
+        "(2) \\\\(\\\\lim_{x\\\\to c}g(x) = \\\\lim_{x\\\\to c}h(x) = L\\\\)",
         "",
         "Conclusion:",
-        "$$ \\\\lim_{x\\\\to c} f(x) = L$$"
+        "\\\\(\\\\lim_{x\\\\to c} f(x) = L\\\\)"
     ]
   },
     {
@@ -43,15 +43,14 @@ unit01DeckJsonString = `[
     "questionFontSize": "w3-xlarge",
     "question": [
       "Definition of Continuity at a Point",
-      "(List conditions that must be met for",
-      "\\\\(f(x)\\\\) to be continuous at \\\\(x=c\\\\).)"
+      "(List conditions that must be met for \\\\(f(x)\\\\) to be continuous at \\\\(x=c\\\\).)"
     ],   
-    "answerFontSize" : "w3-large",
+    "answerFontSize" : "w3-xlarge",
     "answer": [
         "Conditions:",
         "(1) \\\\(f(c)\\\\) must be defined" ,
         "(2) \\\\(\\\\lim_{x\\\\to c}f(x)\\\\) must exist",
-        "(3) $$\\\\lim_{x\\\\to c}f(x) = f(c)$$",
+        "(3) \\\\(\\\\lim_{x\\\\to c}f(x) = f(c)\\\\)",
         ""
     ]
   },
@@ -65,13 +64,13 @@ unit01DeckJsonString = `[
     "questionFontSize" : "w3-xlarge",
     "question": [
       "Definition a Vertical Asymptote",
-      "(List all circumstances in which \\\\(f(x)\\\\)",
-      "has a vertical asymptote at \\\\(x = c\\\\))"
+      "(List all circumstances in which \\\\(f(x)\\\\) has a vertical asymptote at \\\\(x = c\\\\))"
     ],   
-    "answerFontSize" : "w3-large",
+    "answerFontSize" : "w3-xlarge",
     "answer": [
-        "When $$\\\\lim_{x\\\\to c^{-}}f(x)\\\\to \\\\infty \\\\mbox{ or } -\\\\infty$$",
-        "or $$\\\\lim_{x\\\\to c^{+}}f(x)\\\\to \\\\infty \\\\mbox{ or } -\\\\infty$$",
+        "$$\\\\lim_{x\\\\to c^{-}}f(x)\\\\to \\\\infty \\\\mbox{ or } -\\\\infty$$",
+        "or",
+        "$$\\\\lim_{x\\\\to c^{+}}f(x)\\\\to \\\\infty \\\\mbox{ or } -\\\\infty$$",
         ""
     ]
   },
@@ -85,13 +84,13 @@ unit01DeckJsonString = `[
     "questionFontSize" : "w3-xlarge",
     "question": [
       "Definition a Horizontal Asymptote",
-      "(List all circumstances in which ",
-      "\\\\(f(x)\\\\) has a horizontal asymptote of \\\\(y = b\\\\))"
+      "(List all circumstances in which \\\\(f(x)\\\\) has a horizontal asymptote of \\\\(y = b\\\\))"
     ],   
-    "answerFontSize" : "w3-large",
+    "answerFontSize" : "w3-xlarge",
     "answer": [
-        "When $$\\\\lim_{x\\\\to \\\\infty}f(x) = b$$",
-        "or $$\\\\lim_{x\\\\to -\\\\infty}f(x) = b$$",
+        "$$\\\\lim_{x\\\\to \\\\infty}f(x) = b$$",
+        "or",
+        "$$\\\\lim_{x\\\\to -\\\\infty}f(x) = b$$",
         ""
     ]
   },
@@ -107,7 +106,7 @@ unit01DeckJsonString = `[
       "Condition(s):",
       "Conclusion:"
     ],   
-    "answerFontSize" : "w3-xlarge",
+    "answerFontSize" : "w3-large",
     "answer": [
         "Conditions:",
         "(1) \\\\(f\\\\) is continuous on \\\\([a, b]\\\\)",

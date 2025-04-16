@@ -10,9 +10,9 @@ unit02DeckJsonString = `[
       "Definition of the General Derivative of \\\\(f\\\\)",
       ""
     ],   
-    "answerFontSize" : "w3-xlarge",
+    "answerFontSize" : "w3-large",
     "answer": [
-        "$$f'(x) = \\\\lim_{h\\\\to 0} \\\\frac{f(x+h)-f(x)}{h}$$",
+        "$$ f'(x) = \\\\lim_{h\\\\to 0} \\\\frac{f(x+h)-f(x)}{h}$$",
         ""
     ]
   },
@@ -44,10 +44,11 @@ unit02DeckJsonString = `[
       "Differentiability of \\\\(f\\\\) at \\\\(x = a\\\\)",
       ""
     ],   
-    "answerFontSize" : "w3-xlarge",
+    "answerFontSize" : "w3-large",
     "answer": [
         "\\\\(f'(a)\\\\) exists, if and only if,",
-        "$$\\\\lim_{x\\\\to a^{-}} \\\\frac{f(x)-f(a)}{x-a} = \\\\lim_{x\\\\to a^{+}} \\\\frac{f(x)-f(a)}{x-a}$$",
+        "(1) \\\\(f \\\\) is continuous at \\\\(x=a\\\\)",
+        "(2) $$\\\\lim_{x\\\\to a^{-}} \\\\frac{f(x)-f(a)}{x-a} = \\\\lim_{x\\\\to a^{+}} \\\\frac{f(x)-f(a)}{x-a}$$",
         ""
     ]
   },

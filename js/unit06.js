@@ -133,7 +133,7 @@ unit06DeckJsonString = `[
     "active": "true",
     "questionFontSize": "w3-xlarge",
     "question": [
-      "The Fundamental Theorem of Calculus",  
+      "The Fundamental Theorem of Calculus (Part 1)",  
       "$$ \\\\int_{a}^{b} f(x) dx $$", 
       ""
     ],   
@@ -151,7 +151,7 @@ unit06DeckJsonString = `[
     "active": "true",
     "questionFontSize": "w3-xlarge",
     "question": [
-      "The Fundamental Theorem of Calculus",  
+      "The Fundamental Theorem of Calculus (Part 2)",  
       "$$ \\\\frac{d}{dx} \\\\left( \\\\int_{a}^{x} f(t) dt \\\\right )$$", 
       ""
     ],   
@@ -169,7 +169,6 @@ unit06DeckJsonString = `[
     "active": "true",
     "questionFontSize": "w3-xlarge",
     "question": [
-      "The Fundamental Theorem of Calculus",  
       "$$ \\\\int x^n dx $$", 
       "for \\\\(n \\\\neq -1\\\\)",
       ""
@@ -188,7 +187,6 @@ unit06DeckJsonString = `[
     "active": "true",
     "questionFontSize": "w3-xlarge",
     "question": [
-      "The Fundamental Theorem of Calculus",  
       "$$ \\\\int \\\\frac{1}{x}dx $$", 
       ""
     ],   
