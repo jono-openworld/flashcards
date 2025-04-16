@@ -229,36 +229,23 @@ body,h1,h2,h3,h4,h5,h6 {font-family: sans-serif}
 
 
 
-<script>
-    <!-- Accordion -->
-    function myFunction(id) {
-      var x = document.getElementById(id);
-      if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-      } else { 
-        x.className = x.className.replace(" w3-show", "");
-      }
-    }
-</script>
-
 <!--MathJax--> 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <!-- The Decks-->
 <script type="text/javascript" src="js/all-cards.js"></script>
-<script type="text/javascript" src="js/javascript.js"></script>
+<script type="text/javascript" src="js/flashcards-manager.js"></script>
 
 
-<!--Progressive Web App
 <script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js');
-        });
+    if ("serviceWorker" in navigator) {
+      // Register the app's service worker
+      // Passing the filename where that worker is defined.
+      navigator.serviceWorker.register("js/service-worker.js");
     }
 </script>
--->
+  
 
 
 </body>
