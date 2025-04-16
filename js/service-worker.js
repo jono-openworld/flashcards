@@ -7,9 +7,9 @@ const CACHE_NAME = `flashcards-${VERSION}`;
 // The static resources that the app needs to function.
 const APP_STATIC_RESOURCES = [
   "/",
-  "/index.html",
-  "/js/flashcards-manager.js",
-  "/js/all-cards.js",
+  "index.html",
+  "js/flashcards-manager.js",
+  "js/all-cards.js",
 ];
 
 // On install, cache the static resources
