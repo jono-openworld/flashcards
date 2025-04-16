@@ -234,13 +234,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: sans-serif}
 <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <!-- The Decks-->
-<script type="text/javascript" src="/js/all-cards.js"></script>
-<script type="text/javascript" src="/js/flashcards-manager.js"></script>
+<script type="text/javascript" src="js/all-cards.js"></script>
+<script type="text/javascript" src="js/flashcards-manager.js"></script>
 
 
 <script>
     if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("/js/service-worker.js").then(
+    navigator.serviceWorker.register("js/service-worker.js").then(
         (registration) => {
             console.log("Service worker registration successful:", registration);
         },
