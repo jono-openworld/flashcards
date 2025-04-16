@@ -2,12 +2,13 @@
 //******************************************* */
 // Class questions
 class Card {
-    constructor(unit, topic, category, 
+    constructor(subject, unit, topic, category, 
                 learned, active,
                 questionFontSize, question,
                 answerFontSize, answer) {
+        this.subject = subject; // "AP Calculus AB", "AP Calculus BC", "Trigonometry"
         this.unit = unit; // "1", "2", "3", ... "10"
-        this.topic = topic; // "1.2", "1.4", EventCounts.
+        this.topic = topic; // "1.2", "1.4", etc.
         this.category = category; // "Definitions", "Theorems", etc.
         this.learned = learned; // "true" or "false" 
         this.active = active; // card should be displayed to user if learned == false
@@ -72,36 +73,29 @@ class State {
 // const anglesCards = JSON.parse(anglesDeckJsonString);
 // const anglesDeck = new Deck( "Angles", anglesCards, 0);
 
-const unit01Cards = JSON.parse(unit01DeckJsonString);
-const unit01Deck = new Deck( "Unit 01", unit01Cards, 0);
+const allCards = JSON.parse(allCardsJsonString);
+const allDeck = new Deck( "All", allCards, 0);
 
-const unit02Cards = JSON.parse(unit02DeckJsonString);
-const unit02Deck = new Deck( "Unit 02", unit02Cards, 0);
- 
+allABCards = buildDeckFromSubject(allDeck, "AP Calculus AB");
 
-const unit03Cards = JSON.parse(unit03DeckJsonString);
-const unit03Deck = new Deck( "Unit 03", unit03Cards, 0);
+// Build decks for each AP Calculus AB unit
+unit01Deck = buildDeckFromSubjectAndUnit(allDeck, "AP Calculus AB", "1");
+unit02Deck = buildDeckFromSubjectAndUnit(allDeck, "AP Calculus AB", "2");
+unit03Deck = buildDeckFromSubjectAndUnit(allDeck, "AP Calculus AB", "3");
+unit04Deck = buildDeckFromSubjectAndUnit(allDeck, "AP Calculus AB", "4");
+unit05Deck = buildDeckFromSubjectAndUnit(allDeck, "AP Calculus AB", "5");
+unit06Deck = buildDeckFromSubjectAndUnit(allDeck, "AP Calculus AB", "6");
+unit07Deck = buildDeckFromSubjectAndUnit(allDeck, "AP Calculus AB", "7");
+unit08Deck = buildDeckFromSubjectAndUnit(allDeck, "AP Calculus AB", "8");
 
-const unit04Cards = JSON.parse(unit04DeckJsonString);
-const unit04Deck = new Deck( "Unit 04", unit04Cards, 0);
-
-const unit05Cards = JSON.parse(unit05DeckJsonString);
-const unit05Deck = new Deck( "Unit 05", unit05Cards, 0);
-
-const unit06Cards = JSON.parse(unit06DeckJsonString);
-const unit06Deck = new Deck( "Unit 06", unit06Cards, 0);
-
-const unit07Cards = JSON.parse(unit07DeckJsonString);
-const unit07Deck = new Deck( "Unit 07", unit07Cards, 0);
-
-
-const unit08Cards = JSON.parse(unit08DeckJsonString);
-const unit08Deck = new Deck( "Unit 08", unit08Cards, 0);
-
-//let state = new State([unit01Deck, unit02Deck, unit03Deck], 0);
- let state = new State([unit01Deck, unit02Deck, unit03Deck,
-                         unit04Deck, unit05Deck, unit06Deck,
-                         unit07Deck, unit08Deck], 0);
+radiansToCoordinatesDeck 
+   = buildDeckFromSubjectUnitAndTopic(allDeck, "Trigonometry", 
+                                      "Unit Circle", "Sine, Cosine, Tangent");
+// Create the state from the decks
+let state = new State([allABCards, 
+                       unit01Deck, unit02Deck, unit03Deck, unit04Deck, 
+                       unit05Deck, unit06Deck, unit07Deck, unit08Deck, 
+                       radiansToCoordinatesDeck], 0);
 
 
 
@@ -127,6 +121,100 @@ const learnedButton = document.querySelector('#learned-button');
 // Initialize the webpage
 init();
 
+
+//******************************************** */
+// Takes an inDeck and inSubject
+// Returns a new Deck with all cards
+// whose subject == inSubject 
+function buildDeckFromSubject(inDeck, inSubject) {
+
+    if (inDeck.cards.length > 0) {
+
+        newDeckName = inSubject;
+        newCards = [];
+        newCardsIndex = 0;
+
+        // build cards first
+        inDeck.cards.forEach(element => {
+            if (element.subject == inSubject) {
+                newCards.push(element);
+            }
+        });
+
+        if (newCards.length > 0) {
+            // then use the constructor to build the Deck
+            return new Deck(newDeckName, newCards, newCardsIndex);;
+        }
+        return null;
+    }
+
+    return null;
+}
+
+
+//******************************************** */
+// Takes an inDeck, inSubject, and inUnit
+// Returns a new Deck with all cards
+// whose subject == inSubject && unit == inUnit
+function buildDeckFromSubjectAndUnit(inDeck, inSubject, inUnit) {
+
+    if (inDeck.cards.length > 0) {
+
+        newDeckName = inSubject + " | " + "Unit " + inUnit;
+        newCards = [];
+        newCardsIndex = 0;
+
+        // build cards first
+        inDeck.cards.forEach(element => {
+            if (element.subject == inSubject
+             && element.unit == inUnit) {
+                newCards.push(element);
+            }
+        });
+
+        if (newCards.length > 0) {
+            // then use the constructor to build the Deck
+            return new Deck(newDeckName, newCards, newCardsIndex);;
+        }
+        return null;
+    }
+
+    return null;
+}
+
+
+
+//******************************************** */
+// Takes an inDeck, inSubject, inUnit, and inTopic
+// Returns a new Deck with all cards
+// whose 
+// subject == inSubject && unit == inUnit && topic == inTopic
+function buildDeckFromSubjectUnitAndTopic(inDeck, inSubject, inUnit, inTopic) {
+
+    if (inDeck.cards.length > 0) {
+
+        newDeckName = inSubject + " | " + inUnit+ " | " + inTopic;
+        newCards = [];
+        newCardsIndex = 0;
+
+        // build cards first
+        inDeck.cards.forEach(element => {
+            if (element.subject == inSubject
+             && element.unit == inUnit
+             && element.topic == inTopic) {
+                newCards.push(element);
+            }
+        });
+
+        if (newCards.length > 0) {
+            // then use the constructor to build the Deck
+            return new Deck(newDeckName, newCards, newCardsIndex);;
+        }
+        return null;
+    }
+
+    return null;
+}
 
 
 //******************************************** */
@@ -630,6 +718,9 @@ function updatePage() {
                 text = "";
                 text += currentDeck.numLearnedCards + " / " + currentDeck.numActiveCards;
                 progressBarLearned.innerHTML = "<p>" + text + "</p>";                  
+            }
+            else {
+                progressBarLearned.innerHTML = "<p></p>";                  
             }
             
             // set width to percent of cards learned
