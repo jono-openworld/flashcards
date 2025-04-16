@@ -91,11 +91,14 @@ unit08Deck = buildDeckFromSubjectAndUnit(allDeck, "AP Calculus AB", "8");
 radiansToCoordinatesDeck 
    = buildDeckFromSubjectUnitAndTopic(allDeck, "Trigonometry", 
                                       "Unit Circle", "Sine, Cosine, Tangent");
+
+logarithmPropertiesDeck = buildDeckFromSubjectAndTopic(allDeck, "Logarithms", "Properties");
+
 // Create the state from the decks
 let state = new State([allABCards, 
                        unit01Deck, unit02Deck, unit03Deck, unit04Deck, 
                        unit05Deck, unit06Deck, unit07Deck, unit08Deck, 
-                       radiansToCoordinatesDeck], 0);
+                       radiansToCoordinatesDeck, logarithmPropertiesDeck], 0);
 
 
 
@@ -182,6 +185,35 @@ function buildDeckFromSubjectAndUnit(inDeck, inSubject, inUnit) {
     return null;
 }
 
+//******************************************** */
+// Takes an inDeck, inSubject, and inTopic
+// Returns a new Deck with all cards
+// whose subject == inSubject && topic == inTopic
+function buildDeckFromSubjectAndTopic(inDeck, inSubject, inTopic) {
+
+    if (inDeck.cards.length > 0) {
+
+        newDeckName = inSubject + " | " + inTopic;
+        newCards = [];
+        newCardsIndex = 0;
+
+        // build cards first
+        inDeck.cards.forEach(element => {
+            if (element.subject == inSubject
+             && element.topic == inTopic) {
+                newCards.push(element);
+            }
+        });
+
+        if (newCards.length > 0) {
+            // then use the constructor to build the Deck
+            return new Deck(newDeckName, newCards, newCardsIndex);;
+        }
+        return null;
+    }
+
+    return null;
+}
 
 
 //******************************************** */

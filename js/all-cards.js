@@ -1925,5 +1925,153 @@ allCardsJsonString = `[
       "\\\\(\\\\tan 2\\\\pi = 0\\\\)",
       ""
     ]
+  },
+  {
+    "subject": "Logarithms",
+    "unit": "",
+    "topic": "Properties",
+    "category": "",
+    "learned": "false",
+    "active": "true",
+    "questionFontSize": "w3-xlarge",
+    "question": [
+      "$$\\\\ln 1$$",
+      ""
+    ],   
+    "answerFontSize" : "w3-xlarge",
+    "answer": [
+      "$$0$$",
+      ""
+    ]
+  },  
+  {
+    "subject": "Logarithms",
+    "unit": "",
+    "topic": "Properties",
+    "category": "",
+    "learned": "false",
+    "active": "true",
+    "questionFontSize": "w3-xlarge",
+    "question": [
+      "$$\\\\ln e$$",
+      ""
+    ],   
+    "answerFontSize" : "w3-xlarge",
+    "answer": [
+      "$$1$$",
+      ""
+    ]
+  },  
+  {
+    "subject": "Logarithms",
+    "unit": "",
+    "topic": "Properties",
+    "category": "",
+    "learned": "false",
+    "active": "true",
+    "questionFontSize": "w3-xlarge",
+    "question": [
+      "Multiplication Property",
+      "$$\\\\ln (ab)$$",
+      ""
+    ],   
+    "answerFontSize" : "w3-xlarge",
+    "answer": [
+      "$$\\\\ln a + \\\\ln b$$",
+      ""
+    ]
+  },
+  {
+    "subject": "Logarithms",
+    "unit": "",
+    "topic": "Properties",
+    "category": "",
+    "learned": "false",
+    "active": "true",
+    "questionFontSize": "w3-xlarge",
+    "question": [
+      "Division Property",
+      "$$\\\\ln \\\\left(\\\\frac{a}{b}\\\\right)$$",
+      ""
+    ],   
+    "answerFontSize" : "w3-xlarge",
+    "answer": [
+      "$$\\\\ln a - \\\\ln b$$",
+      ""
+    ]
+  },
+    {
+    "subject": "Logarithms",
+    "unit": "",
+    "topic": "Properties",
+    "category": "",
+    "learned": "false",
+    "active": "true",
+    "questionFontSize": "w3-xlarge",
+    "question": [
+      "Power Property",
+      "$$\\\\ln {x^r}$$",
+      ""
+    ],   
+    "answerFontSize" : "w3-xlarge",
+    "answer": [
+      "$$r \\\\ln x$$",
+      ""
+    ]
+  },
+  {
+    "subject": "Logarithms",
+    "unit": "",
+    "topic": "Properties",
+    "category": "",
+    "learned": "false",
+    "active": "true",
+    "questionFontSize": "w3-xlarge",
+    "question": [
+      "Change of Base",
+      "$$\\\\log_b x$$",
+      ""
+    ],   
+    "answerFontSize" : "w3-xlarge",
+    "answer": [
+      "$$\\\\frac{\\\\log_a b}{\\\\log_a x}$$",
+      ""
+    ]
+  },
+  {
+    "subject": "Logarithms",
+    "unit": "",
+    "topic": "Properties",
+    "category": "",
+    "learned": "false",
+    "active": "true",
+    "questionFontSize": "w3-xlarge",
+    "question": [
+      "$$e^{\\\\ln x}$$",
+      ""
+    ],   
+    "answerFontSize" : "w3-xlarge",
+    "answer": [
+      "$$x$$",
+      ""
+    ]
+  },
+    {
+    "subject": "Logarithms",
+    "unit": "",
+    "topic": "Properties",
+    "category": "",
+    "learned": "false",
+    "active": "true",
+    "questionFontSize": "w3-xlarge",
+    "question": [
+      "$$\\\\ln {e^x}$$",
+      ""
+    ],   
+    "answerFontSize" : "w3-xlarge",
+    "answer": [
+      "$$x$$",
+      ""
+    ]
   }
  ]`;
