@@ -8,27 +8,27 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "icon-72.png",
+      "src": "icubed-72.png",
       "sizes": "72x72",
       "type": "image/png"
     },
     {
-      "src": "icon-128.png",
+      "src": "icubed-128.png",
       "sizes": "128x128",
       "type": "image/png"
     },
     {
-      "src": "icon-144.png",
+      "src": "icubed-144.png",
       "sizes": "144x144",
       "type": "image/png"
     },
     {
-      "src": "icon-192.png",
+      "src": "icubed-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "icon-512.png",
+      "src": "icubed-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
