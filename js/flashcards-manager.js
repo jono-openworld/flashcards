@@ -1,51 +1,6 @@
-
-//******************************************* */
-// Class questions
-class Card {
-    constructor(subject, unit, topic, category, 
-                learned, active,
-                questionFontSize, question,
-                answerFontSize, answer) {
-        this.subject = subject; // "AP Calculus AB", "AP Calculus BC", "Trigonometry"
-        this.unit = unit; // "1", "2", "3", ... "10"
-        this.topic = topic; // "1.2", "1.4", etc.
-        this.category = category; // "Definitions", "Theorems", etc.
-        this.learned = learned; // "true" or "false" 
-        this.active = active; // card should be displayed to user if learned == false
-        this.questionFontSize = questionFontSize; // "w3-large", "w3-xlarge", etc.
-        this.question = question; // a 1D array of Strings (table rows)
-        this.answerFontSize = answerFontSize; // "w3-large", "w3-xlarge", etc.
-        this.answer = answer; // a 1D array of Strings (table rows)
-    }
-};
-
-class Deck {
-
-    numLearnedCards;
-    numActiveCards;
-
-    constructor(name, cards, cardsIndex) {
-        this.name = name;
-        this.cards = cards;
-        this.cardsIndex = cardsIndex;
-
-        this.numLearnedCards = 0;
-        this.numActiveCards = 0;
-    
-        if (!(this.cards === null)){
-            this.cards.forEach((element) => {
-                if (element.active != null 
-                 && element.active.toLowerCase() == "true") {
-                    this.numActiveCards++;
-                };
-            });
-        }
-
-    }
-};
-
 class State {
-    constructor(decks, decksIndex) {
+    constructor(masterDeck, decks, decksIndex) {
+        this.masterDeck;
         this.decks = decks;
         this.decksIndex = decksIndex;
     }
@@ -62,43 +17,37 @@ class State {
 
 // When storing SVG data in JSON string 
 // 1. Remove '\n' and
-// 2. Rreplace all double quotes with single quotes
+// 2. Replace all double quotes with single quotes
 // 3. Set width '60%'
 // 4. Remove height attribute to set height to auto.
 
 
-// const formulasCards = JSON.parse(mathFormulasDeckJsonString);
-// const formulasDeck = new Deck( "Formulas", formulasCards, 0);
-
-// const anglesCards = JSON.parse(anglesDeckJsonString);
-// const anglesDeck = new Deck( "Angles", anglesCards, 0);
-
 const allCards = JSON.parse(allCardsJsonString);
-const allDeck = new Deck( "All", allCards, 0);
+const masterDeck = new Deck( "All", allCards, 0);
 
-allABCards = buildDeckFromSubject(allDeck, "AP Calculus AB");
+allABCards = buildDeckFromSubject(masterDeck, "AP Calculus AB");
 
 // Build decks for each AP Calculus AB unit
-unit01Deck = buildDeckFromSubjectAndUnit(allDeck, "AP Calculus AB", "1");
-unit02Deck = buildDeckFromSubjectAndUnit(allDeck, "AP Calculus AB", "2");
-unit03Deck = buildDeckFromSubjectAndUnit(allDeck, "AP Calculus AB", "3");
-unit04Deck = buildDeckFromSubjectAndUnit(allDeck, "AP Calculus AB", "4");
-unit05Deck = buildDeckFromSubjectAndUnit(allDeck, "AP Calculus AB", "5");
-unit06Deck = buildDeckFromSubjectAndUnit(allDeck, "AP Calculus AB", "6");
-unit07Deck = buildDeckFromSubjectAndUnit(allDeck, "AP Calculus AB", "7");
-unit08Deck = buildDeckFromSubjectAndUnit(allDeck, "AP Calculus AB", "8");
+unit01Deck = buildDeckFromSubjectAndUnit(masterDeck, "AP Calculus AB", "1");
+unit02Deck = buildDeckFromSubjectAndUnit(masterDeck, "AP Calculus AB", "2");
+unit03Deck = buildDeckFromSubjectAndUnit(masterDeck, "AP Calculus AB", "3");
+unit04Deck = buildDeckFromSubjectAndUnit(masterDeck, "AP Calculus AB", "4");
+unit05Deck = buildDeckFromSubjectAndUnit(masterDeck, "AP Calculus AB", "5");
+unit06Deck = buildDeckFromSubjectAndUnit(masterDeck, "AP Calculus AB", "6");
+unit07Deck = buildDeckFromSubjectAndUnit(masterDeck, "AP Calculus AB", "7");
+unit08Deck = buildDeckFromSubjectAndUnit(masterDeck, "AP Calculus AB", "8");
 
 radiansToCoordinatesDeck 
-   = buildDeckFromSubjectUnitAndTopic(allDeck, "Trigonometry", 
+   = buildDeckFromSubjectUnitAndTopic(masterDeck, "Trigonometry", 
                                       "Unit Circle", "Sine, Cosine, Tangent");
 
-logarithmPropertiesDeck = buildDeckFromSubjectAndTopic(allDeck, "Logarithms", "Properties");
+logarithmPropertiesDeck = buildDeckFromSubjectAndTopic(masterDeck, "Logarithms", "Properties");
 
 // Create the state from the decks
-let state = new State([allABCards, 
-                       unit01Deck, unit02Deck, unit03Deck, unit04Deck, 
-                       unit05Deck, unit06Deck, unit07Deck, unit08Deck, 
-                       radiansToCoordinatesDeck, logarithmPropertiesDeck], 0);
+let state = new State(masterDeck, [allABCards, 
+                                    unit01Deck, unit02Deck, unit03Deck, unit04Deck, 
+                                    unit05Deck, unit06Deck, unit07Deck, unit08Deck, 
+                                    radiansToCoordinatesDeck, logarithmPropertiesDeck], 0);
 
 
 
@@ -123,130 +72,6 @@ const learnedButton = document.querySelector('#learned-button');
 //******************************************** */
 // Initialize the webpage
 init();
-
-
-//******************************************** */
-// Takes an inDeck and inSubject
-// Returns a new Deck with all cards
-// whose subject == inSubject 
-function buildDeckFromSubject(inDeck, inSubject) {
-
-    if (inDeck.cards.length > 0) {
-
-        newDeckName = inSubject;
-        newCards = [];
-        newCardsIndex = 0;
-
-        // build cards first
-        inDeck.cards.forEach(element => {
-            if (element.subject == inSubject) {
-                newCards.push(element);
-            }
-        });
-
-        if (newCards.length > 0) {
-            // then use the constructor to build the Deck
-            return new Deck(newDeckName, newCards, newCardsIndex);;
-        }
-        return null;
-    }
-
-    return null;
-}
-
-
-//******************************************** */
-// Takes an inDeck, inSubject, and inUnit
-// Returns a new Deck with all cards
-// whose subject == inSubject && unit == inUnit
-function buildDeckFromSubjectAndUnit(inDeck, inSubject, inUnit) {
-
-    if (inDeck.cards.length > 0) {
-
-        newDeckName = inSubject + " | " + "Unit " + inUnit;
-        newCards = [];
-        newCardsIndex = 0;
-
-        // build cards first
-        inDeck.cards.forEach(element => {
-            if (element.subject == inSubject
-             && element.unit == inUnit) {
-                newCards.push(element);
-            }
-        });
-
-        if (newCards.length > 0) {
-            // then use the constructor to build the Deck
-            return new Deck(newDeckName, newCards, newCardsIndex);;
-        }
-        return null;
-    }
-
-    return null;
-}
-
-//******************************************** */
-// Takes an inDeck, inSubject, and inTopic
-// Returns a new Deck with all cards
-// whose subject == inSubject && topic == inTopic
-function buildDeckFromSubjectAndTopic(inDeck, inSubject, inTopic) {
-
-    if (inDeck.cards.length > 0) {
-
-        newDeckName = inSubject + " | " + inTopic;
-        newCards = [];
-        newCardsIndex = 0;
-
-        // build cards first
-        inDeck.cards.forEach(element => {
-            if (element.subject == inSubject
-             && element.topic == inTopic) {
-                newCards.push(element);
-            }
-        });
-
-        if (newCards.length > 0) {
-            // then use the constructor to build the Deck
-            return new Deck(newDeckName, newCards, newCardsIndex);;
-        }
-        return null;
-    }
-
-    return null;
-}
-
-
-//******************************************** */
-// Takes an inDeck, inSubject, inUnit, and inTopic
-// Returns a new Deck with all cards
-// whose 
-// subject == inSubject && unit == inUnit && topic == inTopic
-function buildDeckFromSubjectUnitAndTopic(inDeck, inSubject, inUnit, inTopic) {
-
-    if (inDeck.cards.length > 0) {
-
-        newDeckName = inSubject + " | " + inUnit+ " | " + inTopic;
-        newCards = [];
-        newCardsIndex = 0;
-
-        // build cards first
-        inDeck.cards.forEach(element => {
-            if (element.subject == inSubject
-             && element.unit == inUnit
-             && element.topic == inTopic) {
-                newCards.push(element);
-            }
-        });
-
-        if (newCards.length > 0) {
-            // then use the constructor to build the Deck
-            return new Deck(newDeckName, newCards, newCardsIndex);;
-        }
-        return null;
-    }
-
-    return null;
-}
 
 
 //******************************************** */
@@ -342,25 +167,17 @@ function init() {
 function reset(){
 
     const currentDeck = state.decks[state.decksIndex];
+
+    // reset the deck
+    resetDeck(currentDeck);
   
     // Default deck with be deck 0,
     // or deck stored in state.
     setDeck(currentDeck.name);
 
     
-    // set all active cards to unlearned
-    currentDeck.cards.forEach((element) => {
-        if (element.active != null 
-         && element.active.toLowerCase() == "true") {
-            element.learned = "false";
-        };
-    });
-
-    // reset numLearnedCards
-    currentDeck.numLearnedCards = 0;
-
-    // Default card in deck will be with be card 0,
-    // or card stored in state.
+    // Default card in deck will be with be card 0
+    // or the first active card
     nextCardIndex = getNextCardIndex(currentDeck, 0);
     if (nextCardIndex >= 0){
         setCard(currentDeck, nextCardIndex);
@@ -510,66 +327,6 @@ function back() {
     console.log('back() complete');
 }
 
-
-
-
-
-//******************************************** */
-// Get the next active, unlearned card index
-// start searching at index.
-// Else return -1
-// 
-//
-function getNextCardIndex(deck, index) {
-    if ((deck != null) 
-        && (deck.cards.length > 0) 
-        && (index < deck.cards.length) 
-        && (deck.numActiveCards > 0) 
-        && (deck.numLearnedCards != deck.numActiveCards)) {
-
-        // wrap to the left end if necessary
-        tempIndex = index;
-
-        while (deck.cards[tempIndex].active.toLowerCase() != "true"
-            || deck.cards[tempIndex].learned.toLowerCase() == "true") {
-            tempIndex++;
-
-            // wrap to the left end
-            tempIndex = (tempIndex % deck.cards.length);
-        }
-        return tempIndex;
-    }
-
-    return -1;
-}
-
-//******************************************** */
-// Get the previous active, unlearned index
-// start searching at index.
-// Else return -1
-// 
-//
-function getPreviousCardIndex(deck, index) {
-    if ((deck != null) 
-        && (deck.cards.length > 0) 
-        && (deck.numActiveCards > 0) 
-        && (deck.numLearnedCards != deck.numActiveCards)) {
-
-        tempIndex = index;
-
-        while (deck.cards[tempIndex].active.toLowerCase() != "true"
-            || deck.cards[tempIndex].learned.toLowerCase() == "true") {
-            tempIndex--;
-            if (tempIndex < 0) {
-                // wrap around to the right end
-                tempIndex = deck.cards.length - 1;
-            }
-            }
-        return tempIndex;
-    }
-
-    return -1;
-}
 
 
 
