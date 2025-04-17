@@ -246,6 +246,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: sans-serif}
 
 <!-- The Decks-->
 <script type="text/javascript" src="js/all-cards.js"></script>
+<script type="text/javascript" src="js/decks-manager.js"></script>
 <script type="text/javascript" src="js/flashcards-manager.js"></script>
 
 
@@ -263,6 +264,14 @@ body,h1,h2,h3,h4,h5,h6 {font-family: sans-serif}
     else {
         console.error("Service workers are not supported.");
     }
+
+    // Request persistent storage for site
+    (async () => {
+        if (navigator.storage && navigator.storage.persist) {
+            const isPersisted = await navigator.storage.persist();
+            console.log(`Persisted storage granted: ${isPersisted}`);
+        }
+    })();
 
 </script>
   
