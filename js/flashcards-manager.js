@@ -75,15 +75,21 @@ init();
 
 
 //******************************************** */
-// Read the state from storage.
-// The state is stored as a stringified JSON object.
-function readState() {
-    let obj;
+// Read the iteamName from local storage.
+// The date is stored as a stringified JSON object.
+function readFromLocalStorage(itemName) {
+    let data;
 
     try {
-        obj = JSON.parse(sessionStorage.state);
+        // Do not sync with session storage
+        // b/c session storage is deleted
+        // if the page is closed.
+        // 
+        // obj = JSON.parse(sessionStorage.state);
 
-        console.log('readState() successful.');
+        data = JSON.parse(localStorage.getItem(itemName));
+
+        console.log('readFromLocalStorage() successful.');
 
     } catch (e) {
         console.error(e instanceof SyntaxError);
@@ -93,10 +99,10 @@ function readState() {
         console.error(e.lineNumber);
         console.error(e.columnNumber);
         console.error(e.stack);
-        console.log('readState() failed.');
+        console.log('readFromLocalStorage() failed.');
     }
 
-    return obj;
+    return data;
 }
 
 
@@ -105,12 +111,16 @@ function readState() {
 
 
 //******************************************** */
-// Write the state to storage.
-// The state is stored as a stringified JSON object.
-function writeState(obj) {
-    sessionStorage.setItem('state', JSON.stringify(obj));
+// Write the item to storage.
+// The data is stored as a stringified JSON object.
+function writeToLocalStorage(itemName, data) {
+    // 4/18/25 
+    // state is now stored in localStorage
+    // so that it persists after pages is closed
+    // sessionStorage.setItem('state', JSON.stringify(obj));
+    localStorage.setItem(itemName, JSON.stringify(data));
 
-    console.log('writeState() complete');
+    console.log('writeToLocalStorage() complete');
 }
 
 
@@ -129,13 +139,15 @@ function writeState(obj) {
 // Sync the state with webpage.
 //
 function init() {
-    let newState = readState();
-    if (newState != null){
-        state = newState;
+    let storedState = readFromLocalStorage('state');
+
+    // if there is state stored in localStorage
+    // overwrite the current state with
+    // the storedState
+    if (storedState != null){
+        state = storedState;
     }
-    else {
-        writeState(state);
-    }
+    
 
     const currentDeck = state.decks[state.decksIndex];
 
@@ -195,8 +207,6 @@ function reset(){
 // Shuffle the current deck.
 // Set current index to 0.
 //
-// Write state to storage.
-//
 // Sync the state with webpage.
 //
 function shuffle() {
@@ -211,9 +221,6 @@ function shuffle() {
     if (nextCardIndex >= 0){
         setCard(currentDeck, nextCardIndex);
     }
-
-    // write State
-    writeState(state);
 
     // update page
     updatePage();
@@ -236,19 +243,12 @@ function learned() {
 
         currentDeck.cards[currentDeck.cardsIndex].learned = "true";
 
-        // write State
-        writeState(state);
-
         // select a new card
         moveRightOne = (currentDeck.cardsIndex + 1) % currentDeck.cards.length;
         nextCardIndex = getNextCardIndex(currentDeck, moveRightOne);
         if (nextCardIndex >= 0) {
             setCard(currentDeck, nextCardIndex);
         }
-
-        if (currentDeck.numLearnedCards)
-        // write State
-        writeState(state);
 
         // update page
         updatePage();
@@ -271,9 +271,6 @@ function next() {
 
     const currentDeck = state.decks[state.decksIndex];
    
-    // write State
-    writeState(state);
-
     // select a new card
     moveRightOne = (currentDeck.cardsIndex + 1) % currentDeck.cards.length;
     nextCardIndex 
@@ -281,9 +278,6 @@ function next() {
     if (nextCardIndex >= 0){
         setCard(currentDeck, nextCardIndex);
     }
-
-    // write State
-    writeState(state);
 
     // update page
     updatePage();
@@ -304,9 +298,6 @@ function back() {
 
     const currentDeck = state.decks[state.decksIndex];
    
-    // write State
-    writeState(state);
-
     // select a new card
     moveLeftOne = currentDeck.cardsIndex - 1;
     if (moveLeftOne < 0){
@@ -317,9 +308,6 @@ function back() {
     if (previousCardIndex >= 0){
         setCard(currentDeck, previousCardIndex);
     }
-
-    // write State
-    writeState(state);
 
     // update page
     updatePage();
@@ -381,9 +369,6 @@ function setDeck(name) {
     if (nextCardIndex >= 0){
         setCard(currentDeck, nextCardIndex);
     }
-
-    // Write the state
-    writeState(state);
 
     // sync state and webpage
     updatePage();
@@ -537,6 +522,26 @@ function updatePage() {
 
     console.log('updatePage() complete');
 }
+
+
+document.onvisibilitychange = () => {
+    // if a user navigates to a new page, switches tabs, 
+    // closes the tab, minimizes or closes the browser, 
+    // or, on mobile, switches from the browser to a 
+    // different app        
+    if (document.visibilityState === "hidden") {
+    
+        // write state to localStorage (not to session storage
+        // because session storage is deleted when a page 
+        // is closed)
+        writeToLocalStorage('state', state);       
+      
+    }
+  };
+
+
+
+
 
 function latexToJson(latexString)
 {

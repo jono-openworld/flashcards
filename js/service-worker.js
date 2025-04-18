@@ -8,6 +8,7 @@ const CACHE_NAME = `flashcards-${VERSION}`;
 const APP_STATIC_RESOURCES = [
   "/",
   "index.html",
+  "css/w3.css",
   "js/decks-manager.js",
   "js/flashcards-manager.js",
   "js/all-cards.js",
