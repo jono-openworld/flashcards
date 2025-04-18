@@ -4,7 +4,14 @@
 <title>Flashcards</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<!-- W3 CSS -->
+<!-- Downloaded on 4/18/25 -->
+<link rel="stylesheet" href="css/w3.css">
+
+
+<!-- Font Awesome -->
+<!-- Could not download on 4/18/25 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <link rel="manifest" href="manifest.json" />
@@ -132,7 +139,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: sans-serif}
                                     w3-round-xlarge w3-border w3-padding-small
                                     w3-middle w3-xxlarge"  
                                 style="white-space:normal; word-wrap: break-word;
-                                        min-height:250px; max-height:250px;">
+                                        min-height:250px; max-height:250px; max-width: 640px;">
                             <div id="question">
 
                             </div>
@@ -144,7 +151,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: sans-serif}
                                         w3-round-xlarge w3-border w3-middle
                                         w3-xlarge"  
                                 style="white-space:normal; word-wrap: break-word;
-                                        min-height:250px; max-height:250px;">
+                                        min-height:250px; max-height:250px; max-width: 640px;">
                             <div id="answer">
 
                             </div>                      
@@ -240,9 +247,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: sans-serif}
 
 
 
+<!-- Polyfill -->
+<!-- For compatibility across old browsers 
+     that do not support polyfill
+ -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js"></script>
+ 
 <!--MathJax--> 
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<!-- Could not be downloaded on 4/18/25 -->
 <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 
 <!-- The Decks-->
 <script type="text/javascript" src="js/all-cards.js"></script>
