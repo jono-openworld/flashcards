@@ -125,8 +125,16 @@ function writeToLocalStorage(itemName, data) {
     // 4/18/25 
     // state is now stored in localStorage
     // so that it persists after pages is closed
-    // sessionStorage.setItem('state', JSON.stringify(obj));
+    //
+    // Note: the calls to setItem are wrapped in 
+    //       a call to localStorage.length
+    //       b/c the asynchronous nature
+    //       of localStorage.setItem
+    //       yielded in unpredicatable results
+    localStorage.length;
     localStorage.setItem(itemName, JSON.stringify(data));
+    localStorage.length;
+
 
     console.log('writeToLocalStorage() complete');
 }
