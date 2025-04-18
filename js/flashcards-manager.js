@@ -113,6 +113,14 @@ function readFromLocalStorage(itemName) {
 //******************************************** */
 // Write the item to storage.
 // The data is stored as a stringified JSON object.
+//
+//
+// Note: state should be written to storage
+//       each time it is changed, b/c
+//       there is no cross-browswer
+//       event that reliably fires
+//       on all OSs in all environments
+//       when a page is closed
 function writeToLocalStorage(itemName, data) {
     // 4/18/25 
     // state is now stored in localStorage
@@ -333,6 +341,9 @@ function setCard(deck, index) {
         showCard("question-container");
     }
 
+    // write state to localStorage
+    writeToLocalStorage('state', state);       
+   
     console.log('setCard() complete');
 }
 
@@ -373,6 +384,9 @@ function setDeck(name) {
     // sync state and webpage
     updatePage();
 
+    // write state to localStorage
+    writeToLocalStorage('state', state);       
+ 
     console.log('setDeck() complete');
 }
 
