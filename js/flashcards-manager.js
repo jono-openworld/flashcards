@@ -206,6 +206,9 @@ function reset(){
     // sync state and webpage
     updatePage();  
 
+    // write state to localStorage
+    writeToLocalStorage('state', state);       
+
     console.log('reset() complete');
 }
 
@@ -232,6 +235,9 @@ function shuffle() {
 
     // update page
     updatePage();
+
+    // write state to localStorage
+    writeToLocalStorage('state', state);       
 
     console.log('shuffle() complete');
 }
@@ -260,6 +266,9 @@ function learned() {
 
         // update page
         updatePage();
+
+        // write state to localStorage
+        writeToLocalStorage('state', state);       
             
     }
 
@@ -290,6 +299,9 @@ function next() {
     // update page
     updatePage();
 
+    // write state to localStorage
+    writeToLocalStorage('state', state);       
+
     console.log('next() complete');
 }
 
@@ -319,6 +331,9 @@ function back() {
 
     // update page
     updatePage();
+
+    // write state to localStorage
+    writeToLocalStorage('state', state);       
 
     console.log('back() complete');
 }
