@@ -883,7 +883,7 @@ allCardsJsonString = `[
     ],   
     "answerFontSize" : "w3-large",
     "answer": [
-        "\\\\(f'(c) = 0 \\\\) and \\\\(f''(c) < 0\\\\) \\\\(or (f''(c) > 0)\\\\) \\\\(\\\\implies f \\\\) has a relative maximum (or minimum) at \\\\(x=c\\\\)",
+        "\\\\(f'(c) = 0 \\\\) and \\\\(f''(c) < 0\\\\) (or \\\\(f''(c) > 0\\\\)) \\\\(\\\\implies f \\\\) has a relative maximum (or minimum) at \\\\(x=c\\\\)",
         "<br>",
         "\\\\(f'(c) = 0 \\\\implies \\\\) the Second Derivative Test is inconclusive",
         ""
