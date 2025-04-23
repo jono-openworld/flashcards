@@ -1422,6 +1422,25 @@ allCardsJsonString = `[
     "active": "true",
     "questionFontSize": "w3-xlarge",
     "question": [
+      "Displacement (Net Change in Distance)",
+      "given \\\\(v(t)\\\\) on \\\\( [t_1, t_2] \\\\)",
+      ""
+    ],   
+    "answerFontSize" : "w3-xlarge",
+    "answer": [
+      "$$\\\\int_{t_1}^{t_2} |v(t)| dt$$",
+      ""
+    ]
+  },
+    {
+    "subject": "AP Calculus AB",
+    "unit": "8",
+    "topic": "8.2",
+    "category": "Motion",
+    "learned": "false",
+    "active": "true",
+    "questionFontSize": "w3-xlarge",
+    "question": [
       "Position at \\\\( t_2 \\\\) given", 
       "position \\\\(s(t_1)\\\\) and \\\\(v(t)\\\\)",
       ""
