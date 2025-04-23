@@ -1403,13 +1403,12 @@ allCardsJsonString = `[
     "active": "true",
     "questionFontSize": "w3-xlarge",
     "question": [
-      "Total Distance Traveled",
-      "given \\\\(v(t)\\\\) on \\\\( [t_1, t_2] \\\\)",
+      "Total Distance Traveled given \\\\(v(t)\\\\) on \\\\( [a, b] \\\\)",
       ""
     ],   
     "answerFontSize" : "w3-xlarge",
     "answer": [
-      "$$\\\\int_{t_1}^{t_2} |v(t)| dt$$",
+      "$$\\\\int_{a}^{b} |v(t)| dt$$",
       ""
     ]
   },
@@ -1422,13 +1421,12 @@ allCardsJsonString = `[
     "active": "true",
     "questionFontSize": "w3-xlarge",
     "question": [
-      "Displacement (Net Change in Distance)",
-      "given \\\\(v(t)\\\\) on \\\\( [t_1, t_2] \\\\)",
+      "Displacement (Net Change in Distance) given \\\\(v(t)\\\\) on \\\\( [a, b] \\\\)",
       ""
     ],   
     "answerFontSize" : "w3-xlarge",
     "answer": [
-      "$$\\\\int_{t_1}^{t_2} |v(t)| dt$$",
+      "$$\\\\int_{a}^{b} |v(t)| dt$$",
       ""
     ]
   },
@@ -1441,13 +1439,13 @@ allCardsJsonString = `[
     "active": "true",
     "questionFontSize": "w3-xlarge",
     "question": [
-      "Position at \\\\( t_2 \\\\) given", 
-      "position \\\\(s(t_1)\\\\) and \\\\(v(t)\\\\)",
+      "Position at \\\\( b \\\\) given", 
+      "position \\\\(s(a)\\\\) and \\\\(v(t)\\\\)",
       ""
     ],   
     "answerFontSize" : "w3-xlarge",
     "answer": [
-      "$$ s(t_2) = s(t_1) + \\\\int_{t_1}^{t_2} v(t) dt$$",
+      "$$ s(b) = s(a) + \\\\int_{a}^{b} v(t) dt$$",
       "Think: (final position) = (initial position) + displacement "
     ]
   },
