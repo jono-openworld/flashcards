@@ -1426,7 +1426,7 @@ allCardsJsonString = `[
     ],   
     "answerFontSize" : "w3-xlarge",
     "answer": [
-      "$$\\\\int_{a}^{b} |v(t)| dt$$",
+      "$$\\\\int_{a}^{b} v(t) dt$$",
       ""
     ]
   },
